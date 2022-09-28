@@ -1,5 +1,4 @@
 read -p 'Github username:' varname
-read -p 'Github password:' varpass
 
 read -p 'Repository name for TTM prediction:' varrepo
 
