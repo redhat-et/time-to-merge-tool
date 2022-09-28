@@ -5,7 +5,7 @@ jobs:
   build:
     name: Build and push image to Quay
     runs-on: ubuntu-20.04
-    : quay.io/aicoe/ocp-ci-analysis
+    container: quay.io/aicoe/ocp-ci-analysis
 
     steps:
         - uses: actions/checkout@v1
