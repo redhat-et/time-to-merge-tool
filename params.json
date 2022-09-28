@@ -1,5 +1,4 @@
-{
-  'GITHUB_ORG' = 'operate-first',
-  'GITHUB_REPO' = 'community',
-  'CEPH_BUCKET_PREFIX' = 'oindrillac',
+{ "GITHUB_ORG":"operate-first",
+  "GITHUB_REPO":"community",
+  "CEPH_BUCKET_PREFIX":"oindrillac"
 }
