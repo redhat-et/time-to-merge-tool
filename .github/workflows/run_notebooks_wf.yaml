@@ -13,8 +13,7 @@ jobs:
         path: algorithms
         params: "PATHTOPARAMS.json"
         isReport: False
-        poll: True
-        
+        poll: True 
     - name: Algorithmia-Github Issue Hook
       uses: aslisabanci/algorithmia_github_issue_hook@v0.1-alpha
       env:
