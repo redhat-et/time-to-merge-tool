@@ -1,0 +1,26 @@
+name: Algorithmia Run notebooks
+
+on: [push]
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2.0.0
+      with:
+        ref: ${{github.sha}}
+        path: algorithms
+        params: "PATHTOPARAMS.json"
+        isReport: False
+        poll: True
+        
+    - name: Algorithmia-Github Issue Hook
+      uses: aslisabanci/algorithmia_github_issue_hook@v0.1-alpha
+      env:
+          TOKEN: ${{ secrets.TOKEN }}
+          REPOSITORY: ${{ secrets.REPOSITORY }}
+        with:
+          api_key: ${{ secrets.api_key }}
+          path: algorithm
+          checkpoints: "./checkpoints/"
