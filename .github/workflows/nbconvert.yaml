@@ -65,4 +65,4 @@ jobs:
         with:
           author_name: update notebook with pipeline
           message: "Update Notebook 2"
-          add: "02_feature_engineering.ipynb"
+          add: "02_notebook_executed.ipynb"
