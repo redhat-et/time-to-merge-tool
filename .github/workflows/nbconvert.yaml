@@ -33,6 +33,8 @@ jobs:
       TRINO_PASSWD: ${{ secrets.TRINO_PASSWD }}
       TRINO_HOST: ${{ secrets.TRINO_HOST }}
       TRINO_PORT: ${{ secrets.TRINO_PORT }}
+      
+      REMOTE: 1
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
