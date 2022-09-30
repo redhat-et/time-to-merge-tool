@@ -14,8 +14,8 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     env:
-      REPO: ${{ secrets.REPO }}
-      ORG: ${{ secrets.ORG }}
+      GITHUB_REPO: ${{ secrets.REPO }}
+      GITHUB_ORG: ${{ secrets.ORG }}
 
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       S3_ENDPOINT_URL: ${{ secrets.S3_ENDPOINT_URL }}
@@ -27,7 +27,7 @@ jobs:
       CEPH_KEY_ID: ${{ secrets.CEPH_KEY_ID }}
       CEPH_SECRET_KEY: ${{ secrets.CEPH_SECRET_KEY }}
 
-      GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+      GITHUB_ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
