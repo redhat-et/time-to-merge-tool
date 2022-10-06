@@ -11,4 +11,4 @@ scikit-learn==1.1.2
 pyarrow==4.0.1
 fastparquet==0.8.3
 xgboost==1.6.2
-src @ https://github.com/aicoe-aiops/ocp-ci-analysis/blob/master/src/features/build_features.py
+git+https://github.com/aicoe-aiops/ocp-ci-analysis/blob/master/src/features/build_features.py
