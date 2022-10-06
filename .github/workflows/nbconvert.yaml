@@ -35,6 +35,7 @@ jobs:
       TRINO_PORT: ${{ secrets.TRINO_PORT }}
       
       REMOTE: 1
+      CHOSEN_MODEL: 'rf'
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
