@@ -11,7 +11,7 @@ There are currently 2 ways to run the workflow:
 curl --request POST \
   --url 'https://api.github.com/repos/oindrillac/test-tool-ttm/dispatches' \  
   --header 'authorization: Bearer <insert-personal-access-token-workflow-checked>' \
-  --data '{"event_type": "workflow-run"}'
+  --data '{"event_type": "workflow-run", "client_payload":{"REPO":"community", "ORG":"operate-first"}}'
   
 ```
 
