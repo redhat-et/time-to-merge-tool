@@ -8,17 +8,17 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
-    inputs:
-      repo:
-        required: true
-        type: string
+#     inputs:
+#       repo:
+#         required: true
+#         type: string
 jobs:
   # This workflow contains a single job called "build"
   pipeline:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     env:
-      GITHUB_REPO: ${{ inputs.repo }}
+      GITHUB_REPO: ${{ secrets.REPO }}
       GITHUB_ORG: ${{ secrets.ORG }}
 
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
