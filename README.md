@@ -1,3 +1,5 @@
+# Github Action Tool for Time to Merge Model
+
 In this repo we test out TTM toolification process
 
 We have created a Github Action Workflow which carries out the model training process for the Github Time to Merge model.
