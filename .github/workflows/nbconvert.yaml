@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_REPO: ${{ github.event.client_payload.REPO }}
-      GITHUB_ORG: ${{ secrets.ORG }}
+      GITHUB_ORG: ${{ github.event.client_payload.ORG }}
 
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       S3_ENDPOINT_URL: ${{ secrets.S3_ENDPOINT_URL }}
