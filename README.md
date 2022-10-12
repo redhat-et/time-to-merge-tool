@@ -1,3 +1,5 @@
+[![Run notebooks](https://github.com/oindrillac/ttmtool/actions/workflows/nbconvert.yaml/badge.svg)](https://github.com/oindrillac/ttmtool/actions/workflows/nbconvert.yaml)
+
 # Github Action Tool for Time to Merge Model
 
 In this repo we test out TTM toolification process
