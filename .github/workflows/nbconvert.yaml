@@ -17,7 +17,7 @@ jobs:
     if: ${{ github.event.client_payload.AWS_ACCESS_KEY_ID.passed }}
     env:
       
-      AWS_ACCESS_KEY_ID: ${{ github.event.client_payload.REPO  || secrets.AWS_ACCESS_KEY_ID}}
+      AWS_ACCESS_KEY_ID: ${{ github.event.client_payload.AWS_ACCESS_KEY_ID  || secrets.AWS_ACCESS_KEY_ID}}
     
       GITHUB_REPO: ${{ github.event.client_payload.REPO }}
       GITHUB_ORG: ${{ github.event.client_payload.ORG }}
