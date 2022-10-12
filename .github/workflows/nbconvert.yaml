@@ -14,16 +14,17 @@ jobs:
   pipeline:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    if: ${{ !github.event.client_payload.AWS_ACCESS_KEY_ID.passed }} &&  ${{ !github.event.client_payload.S3_ENDPOINT_URL.passed }} && ${{ !github.event.client_payload.S3_BUCKET.passed }} && ${{ !github.event.client_payload.AWS_SECRET_ACCESS_KEY.passed }}
+    if: ${{ github.event.client_payload.AWS_ACCESS_KEY_ID.passed }}
     env:
       
+      AWS_ACCESS_KEY_ID: ${{ github.event.client_payload.REPO  || secrets.AWS_ACCESS_KEY_ID}}
+    
       GITHUB_REPO: ${{ github.event.client_payload.REPO }}
       GITHUB_ORG: ${{ github.event.client_payload.ORG }}
 
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID || github.event.client_payload.AWS_ACCESS_KEY_ID}}
-      S3_ENDPOINT_URL: ${{ secrets.S3_ENDPOINT_URL || github.event.client_payload.S3_ENDPOINT_URL }}
-      S3_BUCKET: ${{ secrets.S3_BUCKET || github.event.client_payload.S3_BUCKET}}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY || github.event.client_payload.AWS_SECRET_ACCESS_KEY }}
+      S3_ENDPOINT_URL: ${{ secrets.S3_ENDPOINT_URL }}
+      S3_BUCKET: ${{ secrets.S3_BUCKET }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       CEPH_BUCKET: ${{ secrets.CEPH_BUCKET }}
       CEPH_BUCKET_PREFIX: ${{ secrets.CEPH_BUCKET_PREFIX }}
