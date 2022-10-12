@@ -40,7 +40,7 @@ jobs:
       REMOTE: 1
       CHOSEN_MODEL: 'rf'
       REGISTRY: quay.io
-      IMAGE_NAME: ${{ github.repository }}
+      IMAGE_NAME: aicoe/optimal-stopping-point:latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
