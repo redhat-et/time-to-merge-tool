@@ -12,11 +12,11 @@ There are currently 2 ways to run the workflow:
 2. POST Request to Github API Endpoint
 
 ```
-curl --request POST \
-  --url 'https://api.github.com/repos/oindrillac/test-tool-ttm/dispatches' \  
-  --header 'authorization: Bearer <insert-personal-access-token-workflow-checked>' \
-  --data '{"event_type": "workflow-run", "client_payload":{"REPO":"community", "ORG":"operate-first"}}'
-  
+curl \
+  -X POST \
+  -H 'authorization: Bearer <insert-personal-access-token-workflow-checked>' \
+  https://api.github.com/repos/oindrillac/ttmtool/dispatches \
+  -d '{"event_type": "workflow-run", "client_payload":{"REPO":"community", "ORG":"operate-first"}}' 
 ```
 
 
@@ -24,7 +24,7 @@ To view running events from the terminal
 
 ```
 curl --request GET \ 
-  --url 'https://api.github.com/repos/oindrillac/test-tool-ttm/actions/runs' \
+  --url 'https://api.github.com/repos/oindrillac/ttmtool/actions/runs' \
   --header 'authorization: Bearer <insert-personal-access-token-workflow-checked>' \
   --data '{"event_type": "workflow-run"}'
 ```
