@@ -58,7 +58,7 @@ jobs:
         
       - name: installs
         run: |
-          yum -y install gcc gcc-c++ make python39 python3-setuptools glibc libffi python-devel automake autoconf libtool
+          yum -y install gcc gcc-c++ make python39 python3-setuptools glibc libffi automake autoconf libtool
           yum upgrade glibc
         
         
