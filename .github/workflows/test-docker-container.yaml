@@ -58,7 +58,7 @@ jobs:
         
       - name: installs
         run: |
-          yum -y install gcc gcc-c++ kernel-devel make python39 glibc libffi libffi-devel python-devel python-pip ssdeep-devel ssdeep-libs
+          yum -y install gcc gcc-c++ build-essential kernel-devel make python39 python3-setuptools glibc libffi libffi-deve python-devel python-pip ssdeep-devel ssdeep-libs automake autoconf libtool
           yum upgrade glibc
         
         
