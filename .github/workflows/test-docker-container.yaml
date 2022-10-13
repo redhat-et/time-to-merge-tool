@@ -85,9 +85,8 @@ jobs:
           message: "Update Notebook 2"
           add: "02_notebook_executed.ipynb"
       - name: Model Training notebook
-        run: |
-          python -m pip install jupyter nbconvert nbformat
-          jupyter nbconvert --to notebook --execute 03_model_training.ipynb --TemplateExporter.exclude_input=True --ExecutePreprocessor.kernel_name='python3' --output 03_notebook_executed
+#                 python -m pip install jupyter nbconvert nbformat
+        run: jupyter nbconvert --to notebook --execute 03_model_training.ipynb --TemplateExporter.exclude_input=True --ExecutePreprocessor.kernel_name='python3' --output 03_notebook_executed
       - name: commit updated notebook 3
         uses: EndBug/add-and-commit@v7
         with:
