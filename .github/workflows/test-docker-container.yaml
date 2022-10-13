@@ -67,9 +67,8 @@ jobs:
 #       - name: Update data
 #         run: python ./src/main.py
       - name: Data Collection notebook
-        run: |
-          python3 -m pip install jupyter nbconvert nbformat
-          jupyter nbconvert --to notebook --execute 01_data_collection.ipynb --TemplateExporter.exclude_input=True --ExecutePreprocessor.kernel_name='python3' --output 01_notebook_executed
+#                 python3 -m pip install jupyter nbconvert nbformat
+        run: jupyter nbconvert --to notebook --execute 01_data_collection.ipynb --TemplateExporter.exclude_input=True --ExecutePreprocessor.kernel_name='python3' --output 01_notebook_executed
       - name: commit updated notebook
         uses: EndBug/add-and-commit@v7
         with:
