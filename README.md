@@ -50,7 +50,7 @@ If you are passing your S3 credentials here
 
 
 2. **Manual Trigger**
-3. 
+
 To trigger manually, go to the "Actions" section of your forked repository and click on workflow "Run in container" and click on "Run workflow"
 
 <img width="500" alt="image" src="https://user-images.githubusercontent.com/32435206/195928717-079b0c85-c953-43a9-b6e4-cf6efbc7dff5.png">
@@ -64,4 +64,9 @@ To view your running workflow from the Github UI, go to "Actions" and click on t
 Here is the WIP Architecture diagram
 ![ttm github workflow](https://user-images.githubusercontent.com/32435206/195930343-70af7958-ba50-4a0f-93bd-33f7972400ac.png)
 
-To view your running workflow from the Github UI, go to "Actions" and click on the workflow run
+To view your running workflow from the Github UI, go to "Actions" and click on the workflow run.
+
+There are 2 approaches that we follow for installing dependencies.
+
+1. [run-in-container.](.github/workflows/run-in-container.yaml): Install dependencies from base container image ocp-ci-analysis. This is the default option that is selected when run from the run-ttm.sh script. 
+2. [install-from-config](.github/workflows/install-from-config.yaml): Install dependencies from requirements.txt. To run this option, you can run a manual workflow-dispatch and trigger this manually from the GitHub UI.
