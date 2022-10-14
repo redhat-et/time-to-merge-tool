@@ -12,7 +12,7 @@ To use the Github Action tool and train your model, you can follow these steps:
 
 Fork this repository to your account.
 
-<img width="974" alt="image" src="https://user-images.githubusercontent.com/32435206/195927731-484b8640-cee5-45e3-8940-49d80463d945.png">
+<img width="500" alt="image" src="https://user-images.githubusercontent.com/32435206/195927731-484b8640-cee5-45e3-8940-49d80463d945.png">
 
 
 ## Step 2
@@ -26,15 +26,15 @@ You can add your S3 credentials to your repository action secrets if they are pr
 
 To do that, go to repository "Settings" -> "Security" -> "Secrets" -> "Actions" -> "New Repository Secret" and add secrets for `S3_bucket`, `S3_ENDPOINT_URL`, `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`
 
-<img width="352" alt="image" src="https://user-images.githubusercontent.com/32435206/195929605-4518559e-7ffd-4b6d-a47f-e06fd1cdb4ac.png">
+<img width="300" alt="image" src="https://user-images.githubusercontent.com/32435206/195929605-4518559e-7ffd-4b6d-a47f-e06fd1cdb4ac.png">
 
-<img width="967" alt="image" src="https://user-images.githubusercontent.com/32435206/195929854-840a5784-a23a-4412-b23e-1b83c0160e75.png">
+<img width="500" alt="image" src="https://user-images.githubusercontent.com/32435206/195929854-840a5784-a23a-4412-b23e-1b83c0160e75.png">
 
 ## Step 3
 There are currently 2 ways to run the workflow:
 
 
-1. POST Request to Github API Endpoint
+1. **POST Request to Github API Endpoint**
 
 From your terminal, clone your repository and run `bash run-ttm.sh`.
 
@@ -49,15 +49,15 @@ If you are passing your S3 credentials here
 * Enter your Secret Key
 
 
-2. Manual Trigger
+2. **Manual Trigger**
+3. 
 To trigger manually, go to the "Actions" section of your forked repository and click on workflow "Run in container" and click on "Run workflow"
 
-<img width="973" alt="image" src="https://user-images.githubusercontent.com/32435206/195928717-079b0c85-c953-43a9-b6e4-cf6efbc7dff5.png">
+<img width="500" alt="image" src="https://user-images.githubusercontent.com/32435206/195928717-079b0c85-c953-43a9-b6e4-cf6efbc7dff5.png">
 
 ## Step 4
 
 To view your running workflow from the Github UI, go to "Actions" and click on the workflow run
-
 
 ## Architecture
 
