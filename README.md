@@ -1,4 +1,4 @@
-[![Run notebooks](https://github.com/oindrillac/ttmtool/actions/workflows/nbconvert.yaml/badge.svg)](https://github.com/oindrillac/ttmtool/actions/workflows/nbconvert.yaml)
+[![Run in container](https://github.com/oindrillac/ttmtool/actions/workflows/run-in-container.yaml/badge.svg)](https://github.com/oindrillac/ttmtool/actions/workflows/run-in-container.yaml)
 
 # Github Action Tool for Time to Merge Model
 
