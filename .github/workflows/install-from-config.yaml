@@ -1,4 +1,4 @@
-# This is a basic workflow to help you get started with Actions
+# In this workflow, we install dependencies from a requirements.txt within an ubuntu based OS
 name: Install from config
 
 # Controls when the workflow will run
