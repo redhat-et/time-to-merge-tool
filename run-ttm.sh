@@ -25,6 +25,6 @@ fi
 curl -X POST \
   -H 'authorization: Bearer '$PAT'' \
   'https://api.github.com/repos/oindrillac/ttmtool/dispatches' \
-  -d '{"event_type": "workflow-run", "client_payload":{"REPO":"$REPO", "ORG":"$ORG"}}'
+  -d '{"event_type": "workflow-run", "client_payload":{"REPO":"'$REPO'", "ORG":"'$ORG'"}}'
 
 echo Request sent. Check github action workflow for running workflow
