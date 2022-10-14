@@ -2,29 +2,66 @@
 
 # Github Action Tool for Time to Merge Model
 
-In this repo we test out TTM toolification process
+This repository contains a tool to train the Github time to merge model. This model can be trained on any repository and be used to predict the time to merge of new pull requests. To learn more about this model, please see [here](https://github.com/aicoe-aiops/ocp-ci-analysis/tree/master/notebooks/time-to-merge-prediction).
 
 We have created a Github Action Workflow which carries out the model training process for the Github Time to Merge model.
 
+To use the Github Action tool and train your model, you can follow these steps:
+
+## Step 1
+
+Fork this repository to your account.
+
+<img width="974" alt="image" src="https://user-images.githubusercontent.com/32435206/195927731-484b8640-cee5-45e3-8940-49d80463d945.png">
+
+
+## Step 2
+
+### Requirements
+1. **S3 bucket credentials**: You will need an S3 bucket to store the data and the model generated as a apart of the training process. You can pass S3 bucket credentials in 2 ways. You can either set them up as Github Action Secrets or pass them as a payload from your http request.
+
+2. **Personal Acess Token**: You need a personal access token to trigger the workflow and download github data. You can generate that by going [here](https://github.com/settings/tokens/new?description=my-gh-access-token&scopes=workflow)/
+
+You can add your S3 credentials to your repository action secrets if they are private and you dont want to pass them on through the http request.
+
+To do that, go to repository "Settings" -> "Security" -> "Secrets" -> "Actions" -> "New Repository Secret" and add secrets for `S3_bucket`, `S3_ENDPOINT_URL`, `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`
+
+<img width="352" alt="image" src="https://user-images.githubusercontent.com/32435206/195929605-4518559e-7ffd-4b6d-a47f-e06fd1cdb4ac.png">
+
+<img width="967" alt="image" src="https://user-images.githubusercontent.com/32435206/195929854-840a5784-a23a-4412-b23e-1b83c0160e75.png">
+
+## Step 3
 There are currently 2 ways to run the workflow:
 
-1. Manual Trigger
-2. POST Request to Github API Endpoint
 
-```
-curl \
-  -X POST \
-  -H 'authorization: Bearer <insert-personal-access-token-workflow-checked>' \
-  https://api.github.com/repos/oindrillac/ttmtool/dispatches \
-  -d '{"event_type": "workflow-run", "client_payload":{"REPO":"community", "ORG":"operate-first"}}' 
-```
+1. POST Request to Github API Endpoint
+
+From your terminal, clone your repository and run `bash run-ttm.sh`.
+
+* Enter the repository you want to train the model on eg: `community`
+* Enter the organization the repo belongs to eg: `operate-first`
+* Enter the personal access token generated in the previous step eg: `ghp_xyzxyzxyz`
+
+If you are passing your S3 credentials here
+* Enter your bucket name
+* Enter your endpoint url
+* Enter your Access Key
+* Enter your Secret Key
 
 
-To view running events from the terminal
+2. Manual Trigger
+To trigger manually, go to the "Actions" section of your forked repository and click on workflow "Run in container" and click on "Run workflow"
 
-```
-curl --request GET \ 
-  --url 'https://api.github.com/repos/oindrillac/ttmtool/actions/runs' \
-  --header 'authorization: Bearer <insert-personal-access-token-workflow-checked>' \
-  --data '{"event_type": "workflow-run"}'
-```
+<img width="973" alt="image" src="https://user-images.githubusercontent.com/32435206/195928717-079b0c85-c953-43a9-b6e4-cf6efbc7dff5.png">
+
+## Step 4
+
+To view your running workflow from the Github UI, go to "Actions" and click on the workflow run
+
+
+## Architecture
+
+Here is the WIP Architecture diagram
+![ttm github workflow](https://user-images.githubusercontent.com/32435206/195930343-70af7958-ba50-4a0f-93bd-33f7972400ac.png)
+
+To view your running workflow from the Github UI, go to "Actions" and click on the workflow run
