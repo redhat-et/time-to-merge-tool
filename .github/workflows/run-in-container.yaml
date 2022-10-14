@@ -35,11 +35,6 @@ jobs:
 
       GITHUB_ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       
-      TRINO_USER: ${{ secrets.TRINO_USER }}
-      TRINO_PASSWD: ${{ secrets.TRINO_PASSWD }}
-      TRINO_HOST: ${{ secrets.TRINO_HOST }}
-      TRINO_PORT: ${{ secrets.TRINO_PORT }}
-      
       REMOTE: 1
       CHOSEN_MODEL: 'rf'
 
