@@ -1,5 +1,5 @@
-# This is a basic workflow to help you get started with Actions
-name: base container image
+# We run this workflow on the base ocp-ci-analysis container image which contains dependencies neccesary to run these notebooks 
+name: Run in container
 
 # Controls when the workflow will run
 on:
@@ -7,10 +7,10 @@ on:
   repository_dispatch:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+  # Allows submitting to this workflow using client payload
+  # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 
 jobs:
-  # This workflow contains a single job called "build"
   pipeline:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -52,22 +52,13 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.9'
-          
-#       - name: Install xmllint
-#         run: apt-get install build-essential libffi-dev python3 python3-dev python3-pip libfuzzy-dev
-        
+                 
       - name: installs
         run: |
           yum -y install gcc gcc-c++ make python39 python3-setuptools glibc libffi automake autoconf libtool
           yum upgrade glibc
         
-        
-#       - name: Install dependencies
-#         run: python3 -m pip install --upgrade pip -r requirements.txt
-#       - name: Update data
-#         run: python ./src/main.py
       - name: Data Collection notebook
-#                 python3 -m pip install jupyter nbconvert nbformat
         run: jupyter nbconvert --to notebook --execute 01_data_collection.ipynb --TemplateExporter.exclude_input=True --ExecutePreprocessor.kernel_name='python3' --output 01_notebook_executed
       - name: commit updated notebook
         uses: EndBug/add-and-commit@v7
@@ -76,7 +67,6 @@ jobs:
           message: "Update Notebook"
           add: "01_notebook_executed.ipynb"
       - name: Feature Engineering notebook
-#       python3 -m pip install jupyter nbconvert nbformat
         run: jupyter nbconvert --to notebook --execute 02_feature_engineering.ipynb --TemplateExporter.exclude_input=True --ExecutePreprocessor.kernel_name='python3' --output 02_notebook_executed
       - name: commit updated notebook 2
         uses: EndBug/add-and-commit@v7
@@ -85,7 +75,6 @@ jobs:
           message: "Update Notebook 2"
           add: "02_notebook_executed.ipynb"
       - name: Model Training notebook
-#                 python -m pip install jupyter nbconvert nbformat
         run: jupyter nbconvert --to notebook --execute 03_model_training.ipynb --TemplateExporter.exclude_input=True --ExecutePreprocessor.kernel_name='python3' --output 03_notebook_executed
       - name: commit updated notebook 3
         uses: EndBug/add-and-commit@v7
