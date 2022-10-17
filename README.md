@@ -59,12 +59,13 @@ To trigger manually, go to the "Actions" section of your forked repository and c
 
 To view your running workflow from the Github UI, go to "Actions" and click on the workflow run
 
+<img width="700" alt="image" src="https://user-images.githubusercontent.com/32435206/196230588-d8485c8c-2f97-46a9-ba07-b86e1b7c6782.png">
+
+
 ## Architecture
 
 Here is the WIP Architecture diagram
 ![ttm github workflow](https://user-images.githubusercontent.com/32435206/195930343-70af7958-ba50-4a0f-93bd-33f7972400ac.png)
-
-To view your running workflow from the Github UI, go to "Actions" and click on the workflow run.
 
 There are 2 approaches that we follow for installing dependencies.
 
