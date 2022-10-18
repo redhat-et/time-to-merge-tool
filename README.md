@@ -20,16 +20,6 @@ Fork this repository to your account.
 ### Requirements
 1. **S3 bucket credentials**: You will need an S3 bucket to store the data and the model generated as a apart of the training process. You can pass S3 bucket credentials in 2 ways. You can either set them up as Github Action Secrets or pass them as a payload from your http request.
 
-##### NOTE : Must pass the github access token as `PAT` and the s3 bucket prefix as `CEPH_BUCKET_PREFIX` as secrets like such :
-
-![image](https://user-images.githubusercontent.com/26301643/196535129-7cb8d7f9-5fbd-4ecd-8843-906407891545.png)
-
-And pass all the other credentials as a payload from your http request.
-
-![image](https://user-images.githubusercontent.com/26301643/196466088-10e8f725-0e5c-494e-b146-a1fd5ce6c31e.png)
-
-
-
 2. **Personal Acess Token**: You need a personal access token to trigger the workflow and download github data. You can generate that by going [here](https://github.com/settings/tokens/new?description=my-gh-access-token&scopes=workflow)
 
 You can add your S3 credentials to your repository action secrets if they are private and you dont want to pass them on through the http request.
@@ -57,6 +47,15 @@ If you are passing your S3 credentials here
 * Enter your endpoint url
 * Enter your Access Key
 * Enter your Secret Key
+
+##### NOTE : Must pass the github access token as `PAT` and the s3 bucket prefix as `CEPH_BUCKET_PREFIX` as secrets like such :
+
+![image](https://user-images.githubusercontent.com/26301643/196535129-7cb8d7f9-5fbd-4ecd-8843-906407891545.png)
+
+And pass all the other credentials as a payload from your http request.
+
+![image](https://user-images.githubusercontent.com/26301643/196466088-10e8f725-0e5c-494e-b146-a1fd5ce6c31e.png)
+
 
 
 2. **Manual Trigger**
