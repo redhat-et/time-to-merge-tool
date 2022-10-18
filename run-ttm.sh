@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 echo Which repository do you want to train the time to merge model this on?
@@ -18,13 +19,19 @@ then
   read ACCESSKEY
   echo Enter Secret Key
   read SECRETKEY
+
+  curl -X POST \
+  -H 'authorization: Bearer '$PAT'' \
+  'https://api.github.com/repos/oindrillac/ttmtool/dispatches' \
+  -d '{"event_type": "workflow-run", "client_payload":{"REPO":"'$REPO'", "ORG":"'$ORG'", "S3_BUCKET":"'$BUCKET'", "S3_ENDPOINT_URL":"'$S3ENDPOINT'", "AWS_ACCESS_KEY_ID":"'$ACCESSKEY'", "AWS_SECRET_ACCESS_KEY":"'$SECRETKEY'"}}'
+
 else
   echo Please add your S3 bucket credentials as repository action secrets
-fi
 
-curl -X POST \
+  curl -X POST \
   -H 'authorization: Bearer '$PAT'' \
-  'https://api.github.com/repos/<GITHUBUSERNAME>/ttmtool/dispatches' \
+  'https://api.github.com/repos/oindrillac/ttmtool/dispatches' \
   -d '{"event_type": "workflow-run", "client_payload":{"REPO":"'$REPO'", "ORG":"'$ORG'"}}'
+fi
 
 echo Request sent. Check github action workflow for running workflow
