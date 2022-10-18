@@ -24,7 +24,7 @@ then
 
   curl -X POST \
   -H 'authorization: Bearer '$PAT'' \
-  'https://api.github.com/repos/$UNAME/ttmtool/dispatches' \
+  'https://api.github.com/repos/${UNAME}/ttmtool/dispatches' \
   -d '{"event_type": "workflow-run", "client_payload":{"REPO":"'$REPO'", "ORG":"'$ORG'", "S3_BUCKET":"'$BUCKET'", "S3_ENDPOINT_URL":"'$S3ENDPOINT'", "AWS_ACCESS_KEY_ID":"'$ACCESSKEY'", "AWS_SECRET_ACCESS_KEY":"'$SECRETKEY'"}}'
 
 else
