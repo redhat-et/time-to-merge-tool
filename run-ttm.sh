@@ -34,4 +34,4 @@ else
   -d '{"event_type": "workflow-run", "client_payload":{"REPO":"'$REPO'", "ORG":"'$ORG'"}}'
 fi
 
-unset -v PAT    # get rid of PAT
+echo Request sent. Check github action workflow for running workflow
