@@ -1,8 +1,8 @@
 
 #!/bin/bash
 
-#echo What is your github username?
-#read UNAME
+echo What is your github username?
+read UNAME
 echo Which repository do you want to train the time to merge model this on?
 read REPO
 echo Which Github organization or user is this repository a part of?
@@ -22,14 +22,9 @@ then
   echo Enter Secret Key
   read SECRETKEY
 
-  # curl -X POST \
-  #-H 'authorization: Bearer '$PAT'' \
-  #'https://api.github.com/repos/${UNAME}/ttmtool/dispatches' \
-  #-d '{"event_type": "workflow-run", "client_payload":{"REPO":"'$REPO'", "ORG":"'$ORG'", "S3_BUCKET":"'$BUCKET'", "S3_ENDPOINT_URL":"'$S3ENDPOINT'", "AWS_ACCESS_KEY_ID":"'$ACCESSKEY'", "AWS_SECRET_ACCESS_KEY":"'$SECRETKEY'"}}'
-
   curl -X POST \
   -H 'authorization: Bearer '$PAT'' \
-  'https://api.github.com/repos/oindrillac/ttmtool/dispatches' \
+  https://api.github.com/repos/$UNAME/ttmtool/dispatches \
   -d '{"event_type": "workflow-run", "client_payload":{"REPO":"'$REPO'", "ORG":"'$ORG'", "S3_BUCKET":"'$BUCKET'", "S3_ENDPOINT_URL":"'$S3ENDPOINT'", "AWS_ACCESS_KEY_ID":"'$ACCESSKEY'", "AWS_SECRET_ACCESS_KEY":"'$SECRETKEY'"}}'
 
 else
@@ -37,7 +32,7 @@ else
 
   curl -X POST \
   -H 'authorization: Bearer '$PAT'' \
-  'https://api.github.com/repos/oindrillac/ttmtool/dispatches' \
+  https://api.github.com/repos/$UNAME/ttmtool/dispatches \
   -d '{"event_type": "workflow-run", "client_payload":{"REPO":"'$REPO'", "ORG":"'$ORG'"}}'
 fi
 
