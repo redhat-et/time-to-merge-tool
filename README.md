@@ -38,6 +38,7 @@ There are currently 2 ways to run the workflow:
 
 From your terminal, clone your repository and run `bash run-ttm.sh`.
 
+* Enter your github username
 * Enter the repository you want to train the model on eg: `community`
 * Enter the organization the repo belongs to eg: `operate-first`
 * Enter the personal access token generated in the previous step eg: `ghp_xyzxyzxyz`
