@@ -49,7 +49,7 @@ If you are passing your S3 credentials here
 * Enter your Access Key
 * Enter your Secret Key
 
-##### NOTE : Currently pass the github access token as `PAT` and the a prefix as `CEPH_BUCKET_PREFIX` to store your data as secrets like such :
+##### NOTE: Currently we need to also set the github access token as `PAT` like below :
 
 <img width="800" alt="image" src="https://user-images.githubusercontent.com/26301643/196535129-7cb8d7f9-5fbd-4ecd-8843-906407891545.png">
 
