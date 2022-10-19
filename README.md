@@ -74,8 +74,9 @@ To view your running workflow from the Github UI, go to "Actions" and click on t
 
 ## Architecture
 
-Here is the WIP Architecture diagram
-![ttm github workflow](https://user-images.githubusercontent.com/32435206/195930343-70af7958-ba50-4a0f-93bd-33f7972400ac.png)
+![ttm github workflow (1)](https://user-images.githubusercontent.com/32435206/196721278-b668b411-d1b6-4af3-8d73-3cb0dd8d58ab.png)
+
+### Installs
 
 There are 2 approaches that we follow for installing dependencies.
 
