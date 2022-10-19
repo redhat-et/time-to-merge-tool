@@ -29,7 +29,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ github.event.client_payload.AWS_SECRET_ACCESS_KEY || secrets.AWS_SECRET_ACCESS_KEY }}
 
       CEPH_BUCKET: ${{ github.event.client_payload.S3_BUCKET || secrets.S3_BUCKET }}
-      CEPH_BUCKET_PREFIX: ${{ github.event.client_payload.S3_PREFIX || secrets.CEPH_BUCKET_PREFIX }}
+      CEPH_BUCKET_PREFIX: ${{ github.event.client_payload.PREFIX || secrets.CEPH_BUCKET_PREFIX }}
       CEPH_KEY_ID: ${{ github.event.client_payload.AWS_ACCESS_KEY_ID  || secrets.AWS_ACCESS_KEY_ID }}
       CEPH_SECRET_KEY: ${{ github.event.client_payload.AWS_SECRET_ACCESS_KEY || secrets.AWS_SECRET_ACCESS_KEY }}
 
