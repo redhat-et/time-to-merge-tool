@@ -51,7 +51,7 @@ If you are passing your S3 credentials here
 
 ##### NOTE : Must pass the github access token as `PAT` and the s3 bucket prefix as `CEPH_BUCKET_PREFIX` as secrets like such :
 
-![image](https://user-images.githubusercontent.com/26301643/196535129-7cb8d7f9-5fbd-4ecd-8843-906407891545.png)
+<img width="800" alt="image" src="https://user-images.githubusercontent.com/26301643/196535129-7cb8d7f9-5fbd-4ecd-8843-906407891545.png">
 
 And pass all the other credentials as a payload from your http request.
 
