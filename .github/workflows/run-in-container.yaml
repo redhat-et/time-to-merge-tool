@@ -53,21 +53,6 @@ jobs:
         run: |
           yum -y install gcc gcc-c++ make python39 python3-setuptools glibc libffi automake autoconf libtool
           yum upgrade glibc
-          
-          wget https://ftp.gnu.org/gnu/bison/bison-3.2.tar.gz
-          tar xf bison-3.2.tar.gz
-          cd bison-3.2
-          ./configure --prefix=$HOME/install
-          make
-          make install
-
-          wget -c https://ftp.gnu.org/gnu/glibc/glibc-2.29.tar.gz
-          tar -zxvf glibc-2.29.tar.gz
-          mkdir glibc-build
-          cd glibc-build
-          ../glibc-2.29/configure --prefix=/opt/glibc
-          make 
-          make install
         
       - name: Data Collection notebook
         run: jupyter nbconvert --to notebook --execute 01_data_collection.ipynb --TemplateExporter.exclude_input=True --ExecutePreprocessor.kernel_name='python3' --output 01_notebook_executed
