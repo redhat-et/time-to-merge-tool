@@ -52,6 +52,14 @@ jobs:
       - name: installs
         run: |
           yum -y install gcc gcc-c++ make python39 python3-setuptools glibc libffi automake autoconf libtool
+          
+          wget https://ftp.gnu.org/gnu/bison/bison-3.2.tar.gz
+          tar xf bison-3.2.tar.gz
+          cd bison-3.2
+          ./configure --prefix=$HOME/install
+          make
+          make install
+          
           yum upgrade glibc
           wget -c https://ftp.gnu.org/gnu/glibc/glibc-2.29.tar.gz
           tar -zxvf glibc-2.29.tar.gz
