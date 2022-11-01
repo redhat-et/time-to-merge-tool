@@ -49,9 +49,9 @@ jobs:
         with:
           python-version: '3.9'
                  
-      - name: installs
-        run: |
-          yum -y install gcc gcc-c++ make python39-devel python3-setuptools glibc libffi automake autoconf libtool
+#       - name: installs
+#         run: |
+#           yum -y install gcc gcc-c++ make python39-devel python3-setuptools glibc libffi automake autoconf libtool
         
       - name: Data Collection notebook
         run: jupyter nbconvert --to notebook --execute 01_data_collection.ipynb --TemplateExporter.exclude_input=True --ExecutePreprocessor.kernel_name='python3' --output 01_notebook_executed
