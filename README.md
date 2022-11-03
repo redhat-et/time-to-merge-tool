@@ -22,11 +22,13 @@ Fork this repository to your account.
 
 2. **Personal Acess Token**: You need a personal access token to trigger the workflow and download github data. You can generate that by going [here](https://github.com/settings/tokens/new?description=my-gh-access-token&scopes=workflow)
 
+**Optional**
+
 You can add your S3 credentials to your repository action secrets if they are private and you dont want to pass them on through the http request.
 
-To do that, go to repository "Settings" -> "Security" -> "Secrets" -> "Actions" -> "New Repository Secret" and add secrets for `S3_bucket`, `S3_ENDPOINT_URL`, `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`
+To do that, go to repository "Settings" -> "Security" -> "Secrets" -> "Actions" -> "New Repository Secret" and add secrets for `S3_BUCKET`, `S3_ENDPOINT_URL`, `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`
 
-<img width="300" alt="image" src="https://user-images.githubusercontent.com/32435206/195929605-4518559e-7ffd-4b6d-a47f-e06fd1cdb4ac.png">
+<img width="200" alt="image" src="https://user-images.githubusercontent.com/32435206/195929605-4518559e-7ffd-4b6d-a47f-e06fd1cdb4ac.png">
 
 <img width="500" alt="image" src="https://user-images.githubusercontent.com/32435206/195929854-840a5784-a23a-4412-b23e-1b83c0160e75.png">
 
@@ -55,7 +57,10 @@ If you are passing your S3 credentials here
 
 2. **Manual Trigger**
 
-To trigger manually, go to the "Actions" section of your forked repository and click on workflow "Run in container" and click on "Run workflow"
+To trigger manually, first set all the environment variables needed to run the workflow as Action secrets to the repo.
+These include `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `S3_BUCKET`, `S3_ENDPOINT_URL`, `CEPH_BUCKET_PREFIX`, `REPO` and `ORG`.
+
+Now, go to the "Actions" section of your forked repository and click on workflow "Run in container" and click on "Run workflow"
 
 <img width="500" alt="image" src="https://user-images.githubusercontent.com/32435206/195928717-079b0c85-c953-43a9-b6e4-cf6efbc7dff5.png">
 
