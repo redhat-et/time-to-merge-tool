@@ -49,14 +49,8 @@ If you are passing your S3 credentials here
 * Enter your Access Key
 * Enter your Secret Key
 
-##### NOTE: Currently we need to also set the github access token as `PAT` like below :
-
-<img width="800" alt="image" src="https://user-images.githubusercontent.com/26301643/196535129-7cb8d7f9-5fbd-4ecd-8843-906407891545.png">
-
-And pass all the other credentials as a payload from your http request.
 
 ![image](https://user-images.githubusercontent.com/26301643/196466088-10e8f725-0e5c-494e-b146-a1fd5ce6c31e.png)
-
 
 
 2. **Manual Trigger**
