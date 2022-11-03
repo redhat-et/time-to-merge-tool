@@ -43,14 +43,16 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
         
+#       - name: Data Collection notebook
+#         run: jupyter nbconvert --to notebook --execute 01_data_collection.ipynb --TemplateExporter.exclude_input=True --ExecutePreprocessor.kernel_name='python3' --output 01_notebook_executed
+#       - name: commit updated notebook
+#         uses: EndBug/add-and-commit@v7
+#         with:
+#           author_name: update notebook with pipeline
+#           message: "Update Notebook"
+#           add: "01_notebook_executed.ipynb"
       - name: Data Collection notebook
-        run: jupyter nbconvert --to notebook --execute 01_data_collection.ipynb --TemplateExporter.exclude_input=True --ExecutePreprocessor.kernel_name='python3' --output 01_notebook_executed
-      - name: commit updated notebook
-        uses: EndBug/add-and-commit@v7
-        with:
-          author_name: update notebook with pipeline
-          message: "Update Notebook"
-          add: "01_notebook_executed.ipynb"
+        run: python data_collection.py
       - name: Feature Engineering notebook
         run: jupyter nbconvert --to notebook --execute 02_feature_engineering.ipynb --TemplateExporter.exclude_input=True --ExecutePreprocessor.kernel_name='python3' --output 02_notebook_executed
       - name: commit updated notebook 2
