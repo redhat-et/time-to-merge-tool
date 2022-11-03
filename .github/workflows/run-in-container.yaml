@@ -53,7 +53,7 @@ jobs:
 #           add: "01_notebook_executed.ipynb"
 
       - name: Run data collection
-        run: export GITHUB_ACCESS_TOKEN=$GITHUB_ACCESS_TOKEN python data_collection.py
+        run: python data_collection.py
       - name: Feature Engineering notebook
         run: jupyter nbconvert --to notebook --execute 02_feature_engineering.ipynb --TemplateExporter.exclude_input=True --ExecutePreprocessor.kernel_name='python3' --output 02_notebook_executed
       - name: commit updated notebook 2
