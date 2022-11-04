@@ -43,15 +43,6 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
         
-#       - name: Data Collection notebook
-#         run: jupyter nbconvert --to notebook --execute 01_data_collection.ipynb --TemplateExporter.exclude_input=True --ExecutePreprocessor.kernel_name='python3' --output 01_notebook_executed
-#       - name: commit updated notebook
-#         uses: EndBug/add-and-commit@v7
-#         with:
-#           author_name: update notebook with pipeline
-#           message: "Update Notebook"
-#           add: "01_notebook_executed.ipynb"
-
       - name: Run data collection
         run: python data_collection.py
       - name: Feature Engineering notebook
@@ -60,7 +51,7 @@ jobs:
         uses: EndBug/add-and-commit@v7
         with:
           author_name: update notebook with pipeline
-          message: "Update Notebook 2"
+          message: "Updated feature engineering"
           add: "02_notebook_executed.ipynb"
       - name: Model Training notebook
         run: jupyter nbconvert --to notebook --execute 03_model_training.ipynb --TemplateExporter.exclude_input=True --ExecutePreprocessor.kernel_name='python3' --output 03_notebook_executed
@@ -68,7 +59,7 @@ jobs:
         uses: EndBug/add-and-commit@v7
         with:
           author_name: update notebook with pipeline
-          message: "Update Notebook 3"
+          message: "Updated training"
           add: "03_notebook_executed.ipynb"
       - name: Model Inference notebook
         run: jupyter nbconvert --to notebook --execute 04_model_inference.ipynb --TemplateExporter.exclude_input=True --ExecutePreprocessor.kernel_name='python3' --output 04_notebook_executed
@@ -76,5 +67,5 @@ jobs:
         uses: EndBug/add-and-commit@v7
         with:
           author_name: update notebook with pipeline
-          message: "Update Notebook 4"
+          message: "Updated inference"
           add: "04_notebook_executed.ipynb" 
