@@ -1,0 +1,46 @@
+# We run this workflow on the base ocp-ci-analysis container image which contains dependencies neccesary to run these notebooks 
+name: Run Inference
+
+# Controls when the workflow will run
+on:
+
+  workflow_dispatch:
+  pull_request:
+
+
+jobs:
+  pipeline:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    container: 
+      image: quay.io/aicoe/ocp-ci-analysis
+    if: ${{ github.event.client_payload.AWS_ACCESS_KEY_ID.passed }} == true
+    env:
+    
+      AWS_ACCESS_KEY_ID: ${{ github.event.client_payload.AWS_ACCESS_KEY_ID  || secrets.AWS_ACCESS_KEY_ID}}
+    
+      GITHUB_REPO: ${{ github.event.client_payload.REPO || secrets.REPO }}
+      GITHUB_ORG: ${{ github.event.client_payload.ORG || secrets.ORG }}
+
+      S3_ENDPOINT_URL: ${{ github.event.client_payload.S3_ENDPOINT_URL || secrets.S3_ENDPOINT_URL }}
+      S3_BUCKET: ${{ github.event.client_payload.S3_BUCKET || secrets.S3_BUCKET }}
+      AWS_SECRET_ACCESS_KEY: ${{ github.event.client_payload.AWS_SECRET_ACCESS_KEY || secrets.AWS_SECRET_ACCESS_KEY }}
+
+      CEPH_BUCKET: ${{ github.event.client_payload.S3_BUCKET || secrets.S3_BUCKET }}
+      CEPH_BUCKET_PREFIX: ${{ github.event.client_payload.PREFIX|| secrets.CEPH_BUCKET_PREFIX }}
+      CEPH_KEY_ID: ${{ github.event.client_payload.AWS_ACCESS_KEY_ID  || secrets.AWS_ACCESS_KEY_ID }}
+      CEPH_SECRET_KEY: ${{ github.event.client_payload.AWS_SECRET_ACCESS_KEY || secrets.AWS_SECRET_ACCESS_KEY }}
+
+      GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN || secrets.ACCESS_TOKEN}}
+      
+      REMOTE: 1
+      ACTION: 1
+
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        
+      - name: Model Inference notebook
+        run: jupyter nbconvert --to notebook --execute 04_model_inference.ipynb --TemplateExporter.exclude_input=True --ExecutePreprocessor.kernel_name='python3' --output 04_notebook_executed
