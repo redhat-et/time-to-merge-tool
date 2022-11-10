@@ -14,7 +14,6 @@ Fork this repository to your account.
 
 <img width="500" alt="image" src="https://user-images.githubusercontent.com/32435206/195927731-484b8640-cee5-45e3-8940-49d80463d945.png">
 
-
 ## Step 2
 
 ### Requirements
@@ -51,9 +50,7 @@ If you are passing your S3 credentials here
 * Enter your Access Key
 * Enter your Secret Key
 
-
 ![image](https://user-images.githubusercontent.com/26301643/196466088-10e8f725-0e5c-494e-b146-a1fd5ce6c31e.png)
-
 
 2. **Manual Trigger**
 
@@ -69,7 +66,6 @@ Now, go to the "Actions" section of your forked repository and click on workflow
 To view your running workflow from the Github UI, go to "Actions" and click on the workflow run
 
 <img width="700" alt="image" src="https://user-images.githubusercontent.com/32435206/196230588-d8485c8c-2f97-46a9-ba07-b86e1b7c6782.png">
-
 
 ## Architecture
 
