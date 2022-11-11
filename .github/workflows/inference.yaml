@@ -38,9 +38,5 @@ jobs:
 
 
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Checkout repo
-        uses: actions/checkout@v2
-        
-      - name: Model Inference notebook
-        run: jupyter nbconvert --to notebook --execute 04_model_inference.ipynb --TemplateExporter.exclude_input=True --ExecutePreprocessor.kernel_name='python3' --output 04_notebook_executed
+      - name: Run Model Inference
+        uses: redhat-et/time-to-merge-tool@v1
