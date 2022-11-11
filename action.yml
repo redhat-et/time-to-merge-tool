@@ -51,5 +51,5 @@ outputs:
 runs:
   using: 'docker'
   image: 'Containerfile'
-  args:
-    - ${{ inputs.S3_KEY }}
+#   args:
+#     - ${{ inputs.S3_KEY }}
