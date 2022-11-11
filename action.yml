@@ -1,13 +1,53 @@
-name: Model Inference Test
-description: 'This is a test to confirm we can publish an action to github marketplace'
+name: Time To Merge Tool - Model Inference Test
+description: 'This is the github action to predict time to merge for a new pull request'
+author: 'redhat-et'
+
 inputs:
-  S3_KEY:
-    description: 'key for accessing your s3 remote storage where model can be found'
+
+  AWS_ACCESS_KEY_ID:
+    description: 'Access key for accessing your s3 remote storage where model can be found'
     required: false
-    default: 'Nothing'
+    default: ${{ github.event.client_payload.AWS_ACCESS_KEY_ID  || secrets.AWS_ACCESS_KEY_ID}}
+    
+  AWS_SECRET_ACCESS_KEY:
+    description: 'Secret key for accessing your s3 remote storage where model can be found'
+    required: false
+    default: ${{ github.event.client_payload.AWS_SECRET_ACCESS_KEY || secrets.AWS_SECRET_ACCESS_KEY }}
+
+  S3_BUCKET:
+    description: 'S3 bucket for accessing your s3 remote storage where model can be found'
+    required: false
+    default: ${{ github.event.client_payload.S3_BUCKET || secrets.S3_BUCKET }}
+
+  CEPH_BUCKET_PREFIX:
+    description: ' Bucket prefix for accessing your s3 remote storage where model can be found'
+    required: false
+    default: ${{ github.event.client_payload.PREFIX|| secrets.CEPH_BUCKET_PREFIX }}
+
+  S3_ENDPOINT_URL:
+    description: 'S3 Endpoint URL for accessing your s3 remote storage where model can be found'
+    required: false
+    default: ${{ github.event.client_payload.S3_ENDPOINT_URL || secrets.S3_ENDPOINT_URL }}
+
+  GITHUB_REPO:
+    description: 'Github Repository you want to train and evaluate the TTM model on'
+    required: false
+    default: ${{ github.event.client_payload.REPO || secrets.REPO }}
+
+  GITHUB_ORG:
+    description: 'Github Org for the repository you want to train and evaluate the TTM model on'
+    required: false
+    default: ${{ github.event.client_payload.ORG || secrets.ORG }}
+    
+  ACCESS_TOKEN:
+    description: 'Personal Github Access Token for the repository'
+    required: false
+    default: ${{ secrets.GITHUB_TOKEN || secrets.ACCESS_TOKEN}}
+
 outputs:
   prediction:
     description: 'Provides a prediction of the PRs time to merge'
+    
 runs:
   using: 'docker'
   image: 'Containerfile'
