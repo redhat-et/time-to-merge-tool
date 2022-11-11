@@ -44,6 +44,16 @@ inputs:
     required: false
     default: ${{ secrets.GITHUB_TOKEN || secrets.ACCESS_TOKEN}}
 
+  REMOTE:
+    description: 'Remote is set 1 by default'
+    required: false
+    default: 1
+
+  ACTION:
+    description: 'Action is set 1 by default'
+    required: false
+    default: 1
+
 outputs:
   prediction:
     description: 'Provides a prediction of the PRs time to merge'
