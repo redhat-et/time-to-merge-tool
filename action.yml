@@ -1,0 +1,15 @@
+name: Model Inference Test
+description: 'This is a test to confirm we can publish an action to github marketplace'
+inputs:
+  S3_KEY:
+    description: 'key for accessing your s3 remote storage where model can be found'
+    required: false
+    default: 'Nothing'
+outputs:
+  prediction:
+    description: 'Provides a prediction of the PRs time to merge'
+runs:
+  using: 'docker'
+  image: 'Containerfile'
+  args:
+    - ${{ inputs.S3_KEY }}
