@@ -7,43 +7,43 @@ inputs:
   AWS_ACCESS_KEY_ID:
     description: 'Access key for accessing your s3 remote storage where model can be found'
     required: false
-    default: ${{ github.event.client_payload.AWS_ACCESS_KEY_ID  || secrets.AWS_ACCESS_KEY_ID}}
+    default: ''
     
   AWS_SECRET_ACCESS_KEY:
     description: 'Secret key for accessing your s3 remote storage where model can be found'
     required: false
-    default: ${{ github.event.client_payload.AWS_SECRET_ACCESS_KEY || secrets.AWS_SECRET_ACCESS_KEY }}
+    default: ''
 
   S3_BUCKET:
     description: 'S3 bucket for accessing your s3 remote storage where model can be found'
     required: false
-    default: ${{ github.event.client_payload.S3_BUCKET || secrets.S3_BUCKET }}
+    default: ''
 
   CEPH_BUCKET_PREFIX:
     description: ' Bucket prefix for accessing your s3 remote storage where model can be found'
     required: false
-    default: ${{ github.event.client_payload.PREFIX|| secrets.CEPH_BUCKET_PREFIX }}
+    default: ''
 
   S3_ENDPOINT_URL:
     description: 'S3 Endpoint URL for accessing your s3 remote storage where model can be found'
     required: false
-    default: ${{ github.event.client_payload.S3_ENDPOINT_URL || secrets.S3_ENDPOINT_URL }}
+    default: ''
 
   GITHUB_REPO:
     description: 'Github Repository you want to train and evaluate the TTM model on'
     required: false
-    default: ${{ github.event.client_payload.REPO || secrets.REPO }}
+    default: ''
 
   GITHUB_ORG:
     description: 'Github Org for the repository you want to train and evaluate the TTM model on'
     required: false
-    default: ${{ github.event.client_payload.ORG || secrets.ORG }}
+    default: ''
     
   ACCESS_TOKEN:
     description: 'Personal Github Access Token for the repository'
     required: false
-    default: ${{ secrets.GITHUB_TOKEN || secrets.ACCESS_TOKEN}}
-
+    default: ''
+    
   REMOTE:
     description: 'Remote is set 1 by default'
     required: false
