@@ -60,6 +60,6 @@ outputs:
     
 runs:
   using: 'docker'
-  image: 'Containerfile'
+  image: 'Dockerfile'
 #   args:
 #     - ${{ inputs.S3_KEY }}
