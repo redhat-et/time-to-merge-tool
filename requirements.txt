@@ -1,6 +1,5 @@
 python-dotenv==0.20.0
 pandas==1.4.2
-srcopsmetrics==2.10.8
 tqdm==4.64.0
 pydriller==2.1
 trino==0.316
@@ -10,7 +9,6 @@ wordcloud==1.8.2.2
 scikit-learn==1.1.2
 pyarrow==4.0.1
 fastparquet==0.8.3
-xgboost==1.6.2
+xgboost==0.90
 git+https://github.com/aicoe-aiops/ocp-ci-analysis.git#egg=src
 ipynb==0.5.1
-PyGithub==1.57

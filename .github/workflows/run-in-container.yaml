@@ -44,7 +44,7 @@ jobs:
         uses: actions/checkout@v2
         
       - name: Run data collection
-        run: python data_collection.py
+        run: python 01_data_collection.py
       - name: Feature Engineering notebook
         run: jupyter nbconvert --to notebook --execute 02_feature_engineering.ipynb --TemplateExporter.exclude_input=True --ExecutePreprocessor.kernel_name='python3' --output 02_notebook_executed
       - name: commit updated notebook 2
