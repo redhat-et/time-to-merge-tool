@@ -42,7 +42,7 @@ inputs:
   ACCESS_TOKEN:
     description: 'Personal Github Access Token for the repository'
     required: false
-    default: ''
+    default: ${{ github.token }}
     
   REMOTE:
     description: 'Remote is set 1 by default'
