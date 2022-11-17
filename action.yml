@@ -2,57 +2,57 @@ name: Time To Merge Tool - Model Inference Test
 description: 'This is the github action to predict time to merge for a new pull request'
 author: 'redhat-et'
 
-# inputs:
+inputs:
 
-#   AWS_ACCESS_KEY_ID:
-#     description: 'Access key for accessing your s3 remote storage where model can be found'
-#     required: false
-#     default: ''
+  AWS_ACCESS_KEY_ID:
+    description: 'Access key for accessing your s3 remote storage where model can be found'
+    required: false
+    default: ''
     
-#   AWS_SECRET_ACCESS_KEY:
-#     description: 'Secret key for accessing your s3 remote storage where model can be found'
-#     required: false
-#     default: ''
+  AWS_SECRET_ACCESS_KEY:
+    description: 'Secret key for accessing your s3 remote storage where model can be found'
+    required: false
+    default: ''
 
-#   S3_BUCKET:
-#     description: 'S3 bucket for accessing your s3 remote storage where model can be found'
-#     required: false
-#     default: ''
+  S3_BUCKET:
+    description: 'S3 bucket for accessing your s3 remote storage where model can be found'
+    required: false
+    default: ''
 
-#   CEPH_BUCKET_PREFIX:
-#     description: ' Bucket prefix for accessing your s3 remote storage where model can be found'
-#     required: false
-#     default: ''
+  CEPH_BUCKET_PREFIX:
+    description: ' Bucket prefix for accessing your s3 remote storage where model can be found'
+    required: false
+    default: ''
 
-#   S3_ENDPOINT_URL:
-#     description: 'S3 Endpoint URL for accessing your s3 remote storage where model can be found'
-#     required: false
-#     default: ''
+  S3_ENDPOINT_URL:
+    description: 'S3 Endpoint URL for accessing your s3 remote storage where model can be found'
+    required: false
+    default: ''
 
-#   GITHUB_REPO:
-#     description: 'Github Repository you want to train and evaluate the TTM model on'
-#     required: false
-#     default: ''
+  GITHUB_REPO:
+    description: 'Github Repository you want to train and evaluate the TTM model on'
+    required: false
+    default: ''
 
-#   GITHUB_ORG:
-#     description: 'Github Org for the repository you want to train and evaluate the TTM model on'
-#     required: false
-#     default: ''
+  GITHUB_ORG:
+    description: 'Github Org for the repository you want to train and evaluate the TTM model on'
+    required: false
+    default: ''
     
-#   ACCESS_TOKEN:
-#     description: 'Personal Github Access Token for the repository'
-#     required: false
-#     default: ''
+  ACCESS_TOKEN:
+    description: 'Personal Github Access Token for the repository'
+    required: false
+    default: ''
     
-#   REMOTE:
-#     description: 'Remote is set 1 by default'
-#     required: false
-#     default: 1
+  REMOTE:
+    description: 'Remote is set 1 by default'
+    required: false
+    default: 1
 
-#   ACTION:
-#     description: 'Action is set 1 by default'
-#     required: false
-#     default: 1
+  ACTION:
+    description: 'Action is set 1 by default'
+    required: false
+    default: 1
 
 outputs:
   prediction:
