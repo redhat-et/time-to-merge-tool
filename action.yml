@@ -61,3 +61,12 @@ outputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  args:
+    - ${{ inputs.AWS_ACCESS_KEY_ID}}    
+    - ${{ inputs.AWS_SECRET_ACCESS_KEY}}    
+    - ${{ inputs.S3_BUCKET}}
+    - ${{ inputs.CEPH_BUCKET_PREFIX}}
+    - ${{ inputs.S3_ENDPOINT_URL}}
+    - ${{ inputs.GITHUB_REPO}}
+    - ${{ inputs.GITHUB_ORG}}
+    - ${{ inputs.ACCESS_TOKEN}}
