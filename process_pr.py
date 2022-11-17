@@ -4,6 +4,7 @@
 from github import Github
 from github.PullRequest import PullRequest as GithubPullRequest
 from typing import Dict, List, Optional
+from github_handling import github_handler
 
 def assign_pull_request_size(lines_changes: int) -> str:
     """Assign size of PR is label is not provided."""
@@ -137,10 +138,8 @@ def parse_pr_with_mi(pull_request: GithubPullRequest):
     }
     return pr
 
-
-def get_mi_parsed_pr(repo_id, pr_id, gh_token):
-    gh = Github(login_or_token=gh_token, timeout=50)
-    repo = gh.get_repo(repo_id)
+@github_handler
+def get_mi_parsed_pr(repo, pr_id, gh_token):
     prs = repo.get_pull(int(pr_id))
     pr = parse_pr_with_mi(prs)
     return pr
