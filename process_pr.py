@@ -139,7 +139,7 @@ def parse_pr_with_mi(pull_request: GithubPullRequest):
     return pr
 
 @github_handler
-def get_mi_parsed_pr(repo, pr_id, gh_token):
+def get_mi_parsed_pr(repo, pr_id, gh_token, gh):
     prs = repo.get_pull(int(pr_id))
     pr = parse_pr_with_mi(prs)
     return pr
