@@ -2,11 +2,10 @@ import os
 import pandas as pd
 from github import Github
 from dotenv import find_dotenv, load_dotenv
-from github_handling import connect_to_source, github_handler, GITHUB_TIMEOUT_SECONDS
+from github_handling import connect_to_source, GITHUB_TIMEOUT_SECONDS, GitHubSingleton, GithubHandler
 
 import process_pr
 import ceph_comm
-
 
 load_dotenv(find_dotenv(), override=True)
 
@@ -27,7 +26,16 @@ RAW_DATA_PATH = os.path.join(s3_input_data_path, ORG, REPO)
 
 cc = ceph_comm.CephCommunication(s3_endpoint_url, s3_access_key, s3_secret_key, s3_bucket)
 
-repo = connect_to_source(ORG+'/'+REPO)
+gs = GitHubSingleton()
+print("GitHub Singleton: ", gs.github)
+
+gh = GithubHandler(gs.github)
+print("GitHub Handler: ", gh)
+
+# This uses 1 API call
+repo = connect_to_source(ORG+'/'+REPO, gh)
+
+# This typically uses 9 API calls
 prs = repo.get_pulls(state='closed')
 pr_ids = [pr.number for pr in prs]
 
@@ -37,7 +45,9 @@ CLOSED_PRS_KEY = os.path.join(s3_input_data_path, ORG, REPO, "closed_prs")
 cc.upload_to_ceph(closed_prs_df, CLOSED_PRS_KEY, CLOSED_PR_IDS_FILENAME)
 
 for pr_id in pr_ids:
-    d = process_pr.get_mi_parsed_pr(repo, pr_id, TOKEN)
+    
+    # This typically uses 8 API calls per PR
+    d = process_pr.get_mi_parsed_pr(repo, pr_id, TOKEN, gh)
     pr_df = pd.DataFrame.from_dict(d, orient="index")
     pr_df = pr_df.transpose()
 
@@ -45,4 +55,3 @@ for pr_id in pr_ids:
     print("collected PR", RAW_DATA_PATH+"/"+PR_FILENAME)
 
     cc.upload_to_ceph_as_json(pr_df, RAW_DATA_PATH, PR_FILENAME)
-
