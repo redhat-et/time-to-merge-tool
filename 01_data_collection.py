@@ -52,7 +52,7 @@ cc.upload_to_ceph(closed_prs_df, CLOSED_PRS_KEY, CLOSED_PR_IDS_FILENAME)
 
 for idx, pr in enumerate(prs):
     _LOGGER.info(f"{idx+1}/{len_pr_ids}...PR's remaining")    
-    d = process_pr.parse_pr_with_mi(pr)
+    d = process_pr.parse_pr_with_mi(pr,gh)
     pr_df = pd.DataFrame.from_dict(d, orient="index")
     pr_df = pr_df.transpose()
 
