@@ -79,8 +79,8 @@ def extract_pull_request_reviews(
         }
     return results
 
-
-def parse_pr_with_mi(pull_request: GithubPullRequest):
+@github_handler
+def parse_pr_with_mi(pull_request: GithubPullRequest, gh):
     """Extract parsed pull request into MI resultant pr json."""
     created_at = int(pull_request.created_at.timestamp())
     closed_at = (
