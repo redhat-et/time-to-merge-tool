@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import logging
 from github import Github
 from dotenv import find_dotenv, load_dotenv
 from github_handling import connect_to_source, GITHUB_TIMEOUT_SECONDS, GitHubSingleton, GithubHandler
@@ -8,6 +9,9 @@ import process_pr
 import ceph_comm
 
 load_dotenv(find_dotenv(), override=True)
+
+_LOGGER = logging.getLogger(__name__)
+logging.basicConfig(level=logging.INFO)
 
 # get the org/repo from env vars
 ORG = os.getenv("GITHUB_ORG")
@@ -38,20 +42,21 @@ repo = connect_to_source(ORG+'/'+REPO, gh)
 # This typically uses 9 API calls
 prs = repo.get_pulls(state='closed')
 pr_ids = [pr.number for pr in prs]
+len_pr_ids = len(pr_ids)
+_LOGGER.info(f"There are {len_pr_ids} closed PR's in {ORG}/{REPO}")
 
 closed_prs_df = pd.DataFrame(pr_ids, columns=["closed_pr_ids"])
 CLOSED_PR_IDS_FILENAME = os.path.join(ORG + REPO + "CLOSED_PR_IDS.parquet")
 CLOSED_PRS_KEY = os.path.join(s3_input_data_path, ORG, REPO, "closed_prs")
 cc.upload_to_ceph(closed_prs_df, CLOSED_PRS_KEY, CLOSED_PR_IDS_FILENAME)
 
-for pr_id in pr_ids:
-    
-    # This typically uses 8 API calls per PR
-    d = process_pr.get_mi_parsed_pr(repo, pr_id, TOKEN, gh)
+for idx, pr in enumerate(prs):
+    _LOGGER.info(f"{idx+1}/{len_pr_ids}...PR's remaining")    
+    d = process_pr.parse_pr_with_mi(pr)
     pr_df = pd.DataFrame.from_dict(d, orient="index")
     pr_df = pr_df.transpose()
 
-    PR_FILENAME = os.path.join("PRs/"+ str(pr_id) + ".json")
+    PR_FILENAME = os.path.join("PRs/"+ str(pr.number) + ".json")
     print("collected PR", RAW_DATA_PATH+"/"+PR_FILENAME)
 
     cc.upload_to_ceph_as_json(pr_df, RAW_DATA_PATH, PR_FILENAME)
