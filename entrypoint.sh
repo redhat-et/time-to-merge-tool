@@ -5,7 +5,7 @@ if (( $MODE==1 ))
 then 
  echo "Training Mode"
  # Data collection
- python /01_data_collection.py
+ python3 /01_data_collection.py
  
  # Feature Engineering
  jupyter nbconvert --to notebook --execute /02_feature_engineering.ipynb --TemplateExporter.exclude_input=True \
