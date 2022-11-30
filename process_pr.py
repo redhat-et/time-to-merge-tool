@@ -1,5 +1,5 @@
 # The pre-processing used below is based on https://github.com/thoth-station/ttm-as-a-service 
-# and it is authored by Gage Krumbach
+# and it is originally authored by Harshad Reddy Nalla
 
 from github import Github
 from github.PullRequest import PullRequest as GithubPullRequest
@@ -8,7 +8,7 @@ from github_handling import github_handler
 
 def assign_pull_request_size(lines_changes: int) -> str:
     """Assign size of PR is label is not provided."""
-    if lines_changes > 1000:
+    if lines_changes >= 1000:
         return "XXL"
     elif lines_changes >= 500 and lines_changes <= 999:
         return "XL"
