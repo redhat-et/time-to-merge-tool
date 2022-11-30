@@ -5,14 +5,14 @@ if (( $MODE==1 ))
 then 
  echo "Training Mode"
  # Data collection
- python 01_data_collection.py
+ python3 /01_data_collection.py
  
  # Feature Engineering
- jupyter nbconvert --to notebook --execute 02_feature_engineering.ipynb --TemplateExporter.exclude_input=True \
+ jupyter nbconvert --to notebook --execute /02_feature_engineering.ipynb --TemplateExporter.exclude_input=True \
  --ExecutePreprocessor.kernel_name='python3' --output 02_notebook_executed
  
  # Model Training
- jupyter nbconvert --to notebook --execute 03_model_training.ipynb --TemplateExporter.exclude_input=True \
+ jupyter nbconvert --to notebook --execute /03_model_training.ipynb --TemplateExporter.exclude_input=True \
  --ExecutePreprocessor.kernel_name='python3' --output 03_notebook_executed
  
  # Model Inference
