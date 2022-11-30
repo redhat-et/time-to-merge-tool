@@ -1,7 +1,7 @@
 #!/bin/sh
 # If mode is 1, run training + inference mode, otherwise just run the inference
 
-if [ $MODE==1 ]
+if (( $MODE==1 ))
 then 
  echo "Training Mode"
  # Data collection
