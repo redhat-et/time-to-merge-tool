@@ -2,6 +2,11 @@ name: Time To Merge Tool - Model Inference Test
 description: 'This is the github action to predict time to merge for a new pull request'
 author: 'redhat-et'
 
+inputs:
+  MODE : 
+    description: For inference '0' else '1' for training + inference
+    default: 0
+
 outputs:
   prediction:
     description: 'Provides a prediction of the PRs time to merge'
