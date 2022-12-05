@@ -4,9 +4,9 @@ author: 'redhat-et'
 
 inputs:
   MODE: 
-    description: "Mode"
+    description: "0 : Inference Mode and 1: Training and Inference Mode"
     required: true
-    default: 0
+    default: 1
     
 outputs:
   prediction:
