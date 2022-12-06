@@ -19,7 +19,7 @@ jobs:
       - name: Run Model Inference
         uses: redhat-et/time-to-merge-tool@v1
         with: 
-          MODE: 0
+          MODE: 1
         env:
           AWS_ACCESS_KEY_ID: ${{ github.event.client_payload.AWS_ACCESS_KEY_ID  || secrets.AWS_ACCESS_KEY_ID}}
           GITHUB_REPO: ${{ github.event.client_payload.REPO || secrets.REPO }}
