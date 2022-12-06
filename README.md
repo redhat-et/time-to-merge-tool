@@ -1,4 +1,4 @@
-[![Run in container](https://github.com/oindrillac/ttmtool/actions/workflows/run-in-container.yaml/badge.svg)](https://github.com/oindrillac/ttmtool/actions/workflows/run-in-container.yaml)
+[![TTM Inference](https:/https://github.com/redhat-et/time-to-merge-tool/blob/main/.github/workflows/inference.yaml/badge.svg)](https://github.com/redhat-et/time-to-merge-tool/blob/main/.github/workflows/inference.yaml)
 
 # Github Action Tool for Time to Merge Model
 
