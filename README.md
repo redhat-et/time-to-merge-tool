@@ -1,4 +1,4 @@
-[![TTM Inference](https:/https://github.com/redhat-et/time-to-merge-tool/blob/main/.github/workflows/inference.yaml/badge.svg)](https://github.com/redhat-et/time-to-merge-tool/blob/main/.github/workflows/inference.yaml)
+[![TTM Inference](https://github.com/redhat-et/time-to-merge-tool/actions/workflows/inference.yaml/badge.svg)](https://github.com/redhat-et/time-to-merge-tool/blob/main/.github/workflows/inference.yaml)
 
 # Github Action Tool for Time to Merge Model
 
@@ -10,13 +10,11 @@ To use the Github Action tool and train your model, you can follow these steps:
 
 ## Step 1
 
-Fork this repository to your account.
-
-<img width="500" alt="image" src="https://user-images.githubusercontent.com/32435206/195927731-484b8640-cee5-45e3-8940-49d80463d945.png">
 
 ## Step 2
 
 ### Requirements
+
 1. **S3 bucket credentials**: You will need an S3 bucket to store the data and the model generated as a apart of the training process. You can pass S3 bucket credentials in 2 ways. You can either set them up as Github Action Secrets or pass them as a payload from your http request.
 
 2. **Personal Acess Token**: You need a personal access token to trigger the workflow and download github data. You can generate that by going [here](https://github.com/settings/tokens/new?description=my-gh-access-token&scopes=workflow,repo)
@@ -32,27 +30,8 @@ To do that, go to repository "Settings" -> "Security" -> "Secrets" -> "Actions" 
 <img width="500" alt="image" src="https://user-images.githubusercontent.com/32435206/195929854-840a5784-a23a-4412-b23e-1b83c0160e75.png">
 
 ## Step 3
-There are currently 2 ways to run the workflow:
 
-
-1. **POST Request to Github API Endpoint**
-
-From your terminal, clone your repository and run `bash run-ttm.sh`.
-
-* Enter your github username
-* Enter the repository you want to train the model on eg: `community`
-* Enter the organization the repo belongs to eg: `operate-first`
-* Enter the personal access token generated in the previous step eg: `ghp_xyzxyzxyz`
-
-If you are passing your S3 credentials here
-* Enter your bucket name
-* Enter your endpoint url
-* Enter your Access Key
-* Enter your Secret Key
-
-![image](https://user-images.githubusercontent.com/26301643/196466088-10e8f725-0e5c-494e-b146-a1fd5ce6c31e.png)
-
-2. **Manual Trigger**
+You can run this workflow by triggering it manually
 
 To trigger manually, first set all the environment variables needed to run the workflow as Action secrets to the repo.
 These include `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `S3_BUCKET`, `S3_ENDPOINT_URL`, `CEPH_BUCKET_PREFIX`, `REPO` and `ORG`.
