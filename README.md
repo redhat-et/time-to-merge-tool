@@ -67,7 +67,7 @@ To view your running workflow from the Github UI, go to "Actions" and click on t
 
 <img width="700" alt="image" src="https://user-images.githubusercontent.com/32435206/196230588-d8485c8c-2f97-46a9-ba07-b86e1b7c6782.png">
 
-## Architecture
+## Architecture 
 
 ![ttm github workflow (1)](https://user-images.githubusercontent.com/32435206/196721278-b668b411-d1b6-4af3-8d73-3cb0dd8d58ab.png)
 
