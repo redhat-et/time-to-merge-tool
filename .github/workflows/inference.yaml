@@ -1,4 +1,4 @@
-# We run this workflow on the base ocp-ci-analysis container image which contains dependencies neccesary to run these notebooks 
+# We run this workflow on the base ocp-ci-analysis container image which contains dependencies neccesary to run these notebooks.  
 name: Run Inference
 
 # Controls when the workflow will run
