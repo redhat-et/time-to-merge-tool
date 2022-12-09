@@ -73,7 +73,7 @@ Click on `pipeline` to see logs and errors :
 
 ## Alternate Approach
 
-You can also use this tool for your repository using an alternate approach. Here are the steps to follow :
+You can also use train this model on your repository using an alternate approach without adding the workflow file to your repository. Here are the steps to follow :
 
 1. Fork this [repository](https://github.com/redhat-et/time-to-merge-tool) and to your fork add the secrets as mentioned [here](https://github.com/redhat-et/time-to-merge-tool#step-1). Make sure to mention the `REPO` and `ORG` for the repository you want to run TTM on.
 2. Go to `Actions` for your fork and select the workflow you want to run. You can also mention the mode of action by changing it [here](https://github.com/redhat-et/time-to-merge-tool/blob/016897ab03a9ff0aa800d6bcaececad028c93841/.github/workflows/inference.yaml#L22)
