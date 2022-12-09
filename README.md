@@ -69,7 +69,7 @@ Click on `pipeline` to see logs and errors :
 
 ## Architecture
 
-![ttm github workflow (1)](https://user-images.githubusercontent.com/32435206/196721278-b668b411-d1b6-4af3-8d73-3cb0dd8d58ab.png)
+![ttm github workflow (1)](https://user-images.githubusercontent.com/26301643/206780355-7d4e877c-c9ed-448d-8331-ad31e865b85f.png)
 
 ## Alternate Approach
 
