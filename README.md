@@ -50,7 +50,7 @@ Go select - `Run Time to Merge Model Training` and go to `Run workflow` on upper
 This will initiate the model training and inference action. 
 
 
-2. **Infernce Mode** : 
+2. **Inference Mode** : 
 
 Similar to the `train-ttm.yaml` file, you can add another file called `predict-ttm.yaml` file to `.github/worklows/` like [this](https://github.com/aicoe-aiops/ocp-ci-analysis/blob/master/.github/workflows/predict-ttm.yaml). This file has `MODE` as `0` which would enable just inference on the new incoming Pull Request and add a comment to the pull request specifying the approximate time it will take to be merged.
 
