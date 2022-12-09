@@ -76,8 +76,11 @@ Click on `pipeline` to see logs and errors :
 You can also use train this model on your repository using an alternate approach without adding the workflow file to your repository. Here are the steps to follow :
 
 1. Fork this [repository](https://github.com/redhat-et/time-to-merge-tool) and to your fork add the secrets as mentioned [here](https://github.com/redhat-et/time-to-merge-tool#step-1). Make sure to mention the `REPO` and `ORG` for the repository you want to run TTM on.
+
 2. Go to `Actions` for your fork and select the `run in container` workflow to train the model. 
-<img width="1056" alt="Screen Shot 2022-12-09 at 12 43 26 PM" src="https://user-images.githubusercontent.com/26301643/206761255-d74f83d9-183e-4ad9-97da-936f61db36a2.png">
+
+<img width="1045" alt="Screen Shot 2022-12-09 at 2 51 41 PM" src="https://user-images.githubusercontent.com/26301643/206785568-5bf2890c-d6dd-4875-9a70-025a8e24a8dd.png">
+
 3. You can also interact with this tool by POST request to Github API endpoint. From your terminal, clone your repository and run `bash run-ttm.sh` . This will run the training workflow and train the TTM model on the repo and org of your choice.
 
 * Enter your github username
