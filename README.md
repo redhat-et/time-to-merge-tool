@@ -70,3 +70,26 @@ Click on `pipeline` to see logs and errors :
 ## Architecture
 
 ![ttm github workflow (1)](https://user-images.githubusercontent.com/32435206/196721278-b668b411-d1b6-4af3-8d73-3cb0dd8d58ab.png)
+
+## Alternate Approach
+
+You can also use this tool for your repository using an alternate approach. Here are the steps to follow :
+
+1. Fork this [repository](https://github.com/redhat-et/time-to-merge-tool) and to your fork add the secrets as mentioned [here](https://github.com/redhat-et/time-to-merge-tool#step-1). Make sure to mention the `REPO` and `ORG` for the repository you want to run TTM on.
+2. Go to `Actions` for your fork and select the workflow you want to run. You can also mention the mode of action by changing it [here](https://github.com/redhat-et/time-to-merge-tool/blob/016897ab03a9ff0aa800d6bcaececad028c93841/.github/workflows/inference.yaml#L22)
+<img width="1056" alt="Screen Shot 2022-12-09 at 12 43 26 PM" src="https://user-images.githubusercontent.com/26301643/206761255-d74f83d9-183e-4ad9-97da-936f61db36a2.png">
+3. You can also interact with this tool by POST request to Github API endpoint. From your terminal, clone your repository and run `bash run-ttm.sh` .
+
+* Enter your github username
+* Enter the repository you want to train the model on eg: `community`
+* Enter the organization the repo belongs to eg: `operate-first`
+* Enter the personal access token generated in the previous step eg: `ghp_xyzxyzxyz`
+
+If you are passing your S3 credentials here
+* Enter your bucket name
+* Enter your endpoint url
+* Enter your Access Key
+* Enter your Secret Key
+
+![image](https://user-images.githubusercontent.com/26301643/196466088-10e8f725-0e5c-494e-b146-a1fd5ce6c31e.png)
+
