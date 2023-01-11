@@ -2,13 +2,17 @@
 
 # Github Action for Time to Merge Model
 
-This repository contains a GitHub Action to train the Github time to merge model. This model can be trained on any repository and be used to predict the time to merge of new pull requests. To learn more about this model, please see [here](https://github.com/aicoe-aiops/ocp-ci-analysis/tree/master/notebooks/time-to-merge-prediction).
+**Want an estimate on how long it will take to get your PR merged?**
 
-To use the Github Action for your own repository and train the model, you can follow these steps:
+The data science team within Red Hat's Emerging Technologies group wanted to know if we could leverage Github Actions to help us do some predictive analytics and measure the velocity of our projects. To that end we developed the "Time to Merge" (TTM) tool .    
+
+This repository contains the TTM GitHub Action needed to train a custom model for individual projects and provide predictions in the form of PR comments. This model can be trained on any repository and can be used to predict the time to merge of new pull requests. To learn more about this approach, please see [here](https://github.com/aicoe-aiops/ocp-ci-analysis/tree/master/notebooks/time-to-merge-prediction).
+
+To use the Github Action for your own repository and train a model, follow these steps:
 
 ### Pre-requisites:
 
-1. **S3 bucket credentials**: You will need an S3 bucket to store the data and the model generated as a part of the training process. You can pass the S3 bucket credentials in 2 ways. You can either set them up as Github Action Secrets or pass them as a payload from your http request.
+1. **S3 bucket**: You will need an S3 bucket to store the data and the model generated as a part of the training process. You can pass the S3 bucket credentials in 2 ways. You can either set them up as Github Action Secrets or pass them as a payload from your http request.
 
 2. **Personal Acess Token**: You also need a personal access token to trigger the workflow and download data from GitHub. You can generate that by going [here](https://github.com/settings/tokens/new?description=my-gh-access-token&scopes=workflow,repo)
 
@@ -24,12 +28,15 @@ To do that, go to your repository "Settings" -> "Security" -> "Secrets" -> "Acti
 
 ## Step 2
 
-To use this Github Action, you would need to first train your time to merge model and then use it on new pull requests on your repository. This can be done by adding 2 workflow files to your repository and running them in 2 modes.
+To use this Github Action for both training and inference on new PR's, you will need to add 2 workflow files to your repository.
+
+One action controls the training workflow, and is triggered on-demand and as needed. The other action controls the inference workflow, and is triggered on each new PR submission. 
+
 
 1. **Training Mode** :
 
 For every new repository, you need to first train the model on the historical pull requests. 
-To do that, you will need to add a `train-ttm.yaml` file to the `.github/worklows/` folder on your repository like [this](https://github.com/aicoe-aiops/ocp-ci-analysis/blob/master/.github/workflows/train-ttm.yaml). To run the action in training mode, specify the `MODE` as `1`. 
+To do that, you will need to add a `train-ttm.yaml` file to the `.github/worklows/` folder on your repository that looks like [this](https://github.com/aicoe-aiops/ocp-ci-analysis/blob/master/.github/workflows/train-ttm.yaml). To run the action in training mode, make sure you specify the `MODE` as `1`. 
 
 This mode will initiate the model training process which includes data collection, feature engineering and model training on the historical pull requests and finally runs the inference i.e. predicting the time to merge for the last pull request on the repository. 
 
@@ -48,7 +55,7 @@ This will initiate the model training and inference action.
 
 2. **Inference Mode** : 
 
-Similar to the `train-ttm.yaml` file, you can add another file called `predict-ttm.yaml` file to `.github/worklows/` folder in your repository like [this](https://github.com/aicoe-aiops/ocp-ci-analysis/blob/master/.github/workflows/predict-ttm.yaml). This file has `MODE` as `0` which would enable just inference on the new incoming pull requests and add a comment on the pull request specifying the approximate time it will take to be merged.
+Similar to the `train-ttm.yaml` file, you need to add another file called `predict-ttm.yaml` to the `.github/worklows/` folder in your repository that looks like [this](https://github.com/aicoe-aiops/ocp-ci-analysis/blob/master/.github/workflows/predict-ttm.yaml). This file has set `MODE` to `0` which will enable inference on all new incoming pull requests and add a comment on the pull request specifying the approximate time it will take to be merged.
 
 ![image](https://user-images.githubusercontent.com/26301643/206541965-c85eb5f8-012e-454c-9f0d-467db0c8be07.png)
 
@@ -69,7 +76,7 @@ Click on `pipeline` to see logs and errors :
 
 ## Alternate Approach
 
-You can also use train this model on your repository using an alternate approach without adding the workflow file to your repository. Here are the steps that you can follow:
+You can also use this tool on your repository with an alternate approach without adding the workflow file to your repository. Here are the steps that you can follow:
 
 1. Fork this [repository](https://github.com/redhat-et/time-to-merge-tool) and to your fork add the secrets as mentioned [here](https://github.com/redhat-et/time-to-merge-tool#step-1). Make sure to mention the `REPO` and `ORG` for the repository you want to run TTM on.
 
