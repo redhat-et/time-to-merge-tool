@@ -8,6 +8,8 @@ The data science team within Red Hat's Emerging Technologies group wanted to kno
 
 This repository contains the TTM GitHub Action needed to train a custom model for individual projects and provide predictions in the form of PR comments. This model can be trained on any repository and can be used to predict the time to merge of new pull requests. To learn more about this approach, please see [here](https://github.com/aicoe-aiops/ocp-ci-analysis/tree/master/notebooks/time-to-merge-prediction).
 
+*NOTE: Currently the GitHub action is set up in a way to succeed and comment time to merge estimates on pull requests only when pull requests are opened from a feature branch of the same repository.*
+
 To use the Github Action for your own repository and train a model, follow these steps:
 
 ### Pre-requisites:
@@ -36,11 +38,11 @@ One action controls the training workflow, and is triggered on-demand and as nee
 1. **Training Mode** :
 
 For every new repository, you need to first train the model on the historical pull requests. 
-To do that, you will need to add a `train-ttm.yaml` file to the `.github/worklows/` folder on your repository that looks like [this](https://github.com/aicoe-aiops/ocp-ci-analysis/blob/master/.github/workflows/train-ttm.yaml). To run the action in training mode, make sure you specify the `MODE` as `1`. 
+To do that, you will need to add a `train-ttm.yaml` file to the `.github/worklows/` folder on your repository that looks like [this](https://github.com/aicoe-aiops/ocp-ci-analysis/blob/master/.github/workflows/train-ttm.yaml). To run the action in training mode, make sure you specify the `MODE` as `1`.
 
 This mode will initiate the model training process which includes data collection, feature engineering and model training on the historical pull requests and finally runs the inference i.e. predicting the time to merge for the last pull request on the repository. 
 
-(*NOTE : This workflow will fail if there are no PRs on the repository*)
+(*NOTE : This workflow will fail if there are no PRs on the repository. For this model to train correctly, you would need atleast 11 closed PRs on the repository being trained. For good model performance, we recommend training the model on repositories with atleast a few 100 PRs.*)
 
 You can also initiate a manual trigger by going to actions for your repository like [here](https://github.com/aicoe-aiops/ocp-ci-analysis/actions/workflows/train-ttm.yaml):
 
@@ -59,6 +61,7 @@ Similar to the `train-ttm.yaml` file, you need to add another file called `predi
 
 ![image](https://user-images.githubusercontent.com/26301643/206541965-c85eb5f8-012e-454c-9f0d-467db0c8be07.png)
 
+(*NOTE: For the inference workflow to succesfully comment a time range prediction, you need atleast one open PR on the repsoitory*)
 
 ## Step 3
 
