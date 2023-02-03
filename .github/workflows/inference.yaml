@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: Run Model Inference
-        uses: redhat-et/time-to-merge-tool@v1
+        uses: redhat-et/time-to-merge-tool@v1.1.0
         with: 
           MODE: 0
         env:
