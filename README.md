@@ -79,6 +79,7 @@ Click on `pipeline` to see logs and errors :
 
 ## Alternate Approach
 
+
 You can also use this tool on your repository with an alternate approach without adding the workflow file to your repository. Here are the steps that you can follow:
 
 1. Fork this [repository](https://github.com/redhat-et/time-to-merge-tool) and to your fork add the secrets as mentioned [here](https://github.com/redhat-et/time-to-merge-tool#step-1). Make sure to mention the `REPO` and `ORG` for the repository you want to run TTM on.
